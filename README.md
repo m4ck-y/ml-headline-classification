@@ -1,0 +1,61 @@
+## Estructura del Proyecto
+
+```
+├── app/
+│   └── main.py          # Aplicación principal
+├── data/
+│   └── data.json        # Dataset
+└── requirements.txt     # Dependencias
+```
+
+## Requisitos
+
+- Python 3.10.12(usado en el desarrollo)o superior
+- pip (gestor de paquetes de Python)
+
+## Instalación
+
+1. **Crear entorno virtual:**
+   ```bash
+   python3 -m venv .venv
+   ```
+
+2. **Activar el entorno virtual:**
+   
+   En Windows:
+   ```bash
+   .venv\Scripts\activate
+   ```
+   
+   En macOS/Linux:
+   ```bash
+   source .venv/bin/activate
+   ```
+
+3. **Instalar dependencias:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## Uso
+
+Para ejecutar la aplicación:
+
+```bash
+python app/main.py
+```
+
+## Desarrollo
+
+- **Lenguaje**: Python 3.10.12
+- **Sistema Operativo**: WSL2 Ubuntu 22.04.5 LTS x86_64
+
+#### Dependencias
+
+- **pandas**: Lectura, manipulación y análisis de datos
+
+
+Comando para actualizar el archivo de dependencias
+```bash
+pip freeze > requirements.txt
+```
