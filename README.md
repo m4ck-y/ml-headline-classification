@@ -42,17 +42,19 @@
 Para ejecutar la aplicación:
 
 ```bash
-python app/main.py
+python -m app.main 
 ```
 
 ## Desarrollo
 
 - **Lenguaje**: Python 3.10.12
 - **Sistema Operativo**: WSL2 Ubuntu 22.04.5 LTS x86_64
+- **IDE**: VS Code
 
 #### Dependencias
 
 - **pandas**: Lectura, manipulación y análisis de datos
+- **ipykernel**: Necesario para ejecutar Jupyter Notebooks. Se utiliza durante el Análisis Exploratorio de Datos (EDA) para pruebas interactivas, y una vez validadas las transformaciones, estas se trasladan a process.py para su procesamiento final.
 
 
 Comando para actualizar el archivo de dependencias
