@@ -58,7 +58,8 @@ python -m app.main
 - **plotly** :Librería de visualización interactiva de gráficos, utilizada para crear gráficos dinámicos y visualizaciones atractivas.
 - **nbformat**: Librería necesaria para renderizar correctamente los gráficos interactivos de Plotly dentro de Jupyter Notebooks.
 - **scikit-learn**: Toolkit principal para construir, entrenar y evaluar modelos.
- - **imblearn**:Conjunto de herramientas especializado para manejar desbalanceo de clases.
+- **imblearn**:Conjunto de herramientas especializado para manejar desbalanceo de clases.
+- **nltk**: Biblioteca fundamental para el procesamiento de lenguaje natural (NLP). Se utiliza para tareas como tokenización, limpieza y normalización de texto antes del modelado.
 
 Comando para actualizar el archivo de dependencias
 ```bash
