@@ -55,7 +55,8 @@ python -m app.main
 
 - **pandas**: Lectura, manipulación y análisis de datos
 - **ipykernel**: Necesario para ejecutar Jupyter Notebooks. Se utiliza durante el Análisis Exploratorio de Datos (EDA) para pruebas interactivas, y una vez validadas las transformaciones, estas se trasladan a process.py para su procesamiento final.
-
+- **plotly** :Librería de visualización interactiva de gráficos, utilizada para crear gráficos dinámicos y visualizaciones atractivas.
+- **nbformat**: Librería necesaria para renderizar correctamente los gráficos interactivos de Plotly dentro de Jupyter Notebooks.
 
 Comando para actualizar el archivo de dependencias
 ```bash
