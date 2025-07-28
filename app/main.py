@@ -35,7 +35,7 @@ def create_model():
 
      # 1. Cargar y preprocesar datos
     df = load_data("data/data.json")
-    df = minimize_df(df) # Comentar esta lineas para probar todos los datos
+    df = minimize_df(df, 30) # Comentar esta lineas para probar todos los datos
     df = process_df(df)
     df.to_csv("data/data_processed.csv", index=False)
     df["headline"] = df["headline"].apply(tokenize_text)

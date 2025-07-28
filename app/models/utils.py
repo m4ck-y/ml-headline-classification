@@ -22,15 +22,30 @@ def split_data(X, y, test_size=0.2):
 def log_training(name):
     def decorator(func):
         def wrapper(X_train, y_train):
-            print(f"\nEntrenando: {name}")
+            print(f"\n>>> Entrenando: {name}")
             start = time.time()
             model = func(X_train, y_train)  # Llama a la función original
             end = time.time()
 
-            print(f"\n✅ Tiempo de entrenamiento '{name}': {end - start:.2f} segundos")
+            print(f"\n-- Tiempo de entrenamiento '{name}': {end - start:.2f} segundos")
             print(f"Dimensión de X_train: {X_train.shape}")
             print(f"Dimensión de y_train: {y_train.shape}")
             return model
         return wrapper
     return decorator
 
+def log_evaluation():
+    def decorator(func):
+        def wrapper(model, X_test, y_test, model_name):
+            print(f"\n>>> Evaluando modelo: {model_name}")
+            print(f"Dimensión de X_test: {X_test.shape}")
+            print(f"Dimensión de y_test: {y_test.shape}")
+
+            start = time.time()
+            result = func(model, X_test, y_test, model_name)
+            end = time.time()
+
+            print(f"\n-- Tiempo de evaluación '{model_name}': {end - start:.2f} segundos\n")
+            return result
+        return wrapper
+    return decorator

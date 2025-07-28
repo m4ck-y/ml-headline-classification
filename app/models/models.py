@@ -6,7 +6,7 @@ import time
 import joblib
 
 from app.config.env import PATH_MODEL, PATH_VECTORIZER
-from app.models.utils import log_training
+from app.models.utils import log_evaluation, log_training
 
 VERBOSE_RANDOM_FOREST_CLASSIFIER = 2 # Muestra progreso
 VERBOSE_LOGISTIC_REGRESION = 1 # Muestra progreso
@@ -37,15 +37,11 @@ def train_logistic_regression(X_train, y_train) -> LogisticRegression:
     ).fit(X_train, y_train)
 
 
+@log_evaluation()
 def evaluate_model(model, X_test, y_test, model_name):
-
-    print(f"\nEvaluación del Modelo: {model_name}:\n")
-    start = time.time()
     y_pred = model.predict(X_test)
-    end = time.time()
-    print("\n",classification_report(y_test, y_pred))
+    print("\n", classification_report(y_test, y_pred))
     print("Accuracy:", accuracy_score(y_test, y_pred))
-    print(f"Tiempo de evaluación: {end - start:.2f} segundos")
 
 
 def save_model(model, vectorizer):

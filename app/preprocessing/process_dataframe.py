@@ -30,14 +30,13 @@ def normalize_category(df: pd.DataFrame) -> pd.DataFrame:
 # NOTA: Esta función está diseñada únicamente para fines de entrenamiento rápido
 def minimize_df(df: pd.DataFrame, n=10) -> pd.DataFrame:
 
-    #Reduce el DataFrame a las 10 categorías menos frecuentes
-    #Se usa para probar inicialmente el tiempo que tarda el modelo en entrenarse,
-    #especialmente útil en entornos con recursos limitados.
-
+    # Reduce el tamaño del DataFrame a las `n` categorías menos frecuentes.
+    # Es útil para validar tiempos de entrenamiento y rendimiento
+    # especialmente en entornos con recursos limitados
 
     category_counts = df['category'].value_counts()
 
-    #10 categorias con menor cantidad de rows
+    # Seleccionar las `n` categorías menos frecuentes
     rarest_categories = category_counts.nsmallest(n).index.tolist()
 
     # filtrar
