@@ -78,8 +78,8 @@ API REST moderna para clasificar headlines de noticias en diferentes categorías
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone <repository-url>
-   cd headline-classifier
+   git clone https://github.com/m4ck-y/ml-headline-classification.git
+   cd ml-headline-classification
    ```
 
 2. **Crear entorno virtual:**
