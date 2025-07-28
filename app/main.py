@@ -27,7 +27,7 @@ def create_model():
 
     df = load_data("data/data.json")
 
-    df = minimize_df(df) # Comentar esta lineas para probar todos los datos
+    #df = minimize_df(df) # Comentar esta lineas para probar todos los datos
 
     df = process_df(df)
     df.to_csv("data/data_processed.csv", index=False)
@@ -58,7 +58,7 @@ def create_model():
     evaluate_model(model_rf, X_test_resampled, y_test_resampled, model_name="Random Forest con Oversampling")
 
     save_model(model_rf, vectorizer)
-
+    global model
     model = model_rf
 
 load_model()
