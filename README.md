@@ -113,11 +113,45 @@ API REST moderna para clasificar headlines de noticias en diferentes categorías
 
 ## 🚀 Uso
 
+### 🤖 Entrenamiento Automático del Modelo
+
+La aplicación cuenta con **entrenamiento automático** durante el arranque:
+
+- **Si existen los modelos**: La API carga automáticamente los archivos `.pkl` desde la carpeta `models/`:
+  - `models/model.pkl` - Modelo Random Forest entrenado
+  - `models/vectorizer.pkl` - Vectorizador TF-IDF
+  - `models/label_encoder.pkl` - Codificador de etiquetas
+
+- **Si NO existen los modelos**: La aplicación automáticamente:
+  1. 📊 Carga los datos desde `data/data.json`
+  2. 🔄 Procesa y prepara los datos
+  3. 🤖 Entrena el modelo Random Forest
+  4. 💾 Guarda los modelos en la carpeta `models/`
+  5. 🚀 Levanta la API con los modelos cargados
+
+### 🔄 Re-entrenar el Modelo
+
+Para volver a entrenar el modelo desde cero, simplemente elimina la carpeta `models/`:
+
+**Windows:**
+```bash
+rmdir /s models
+```
+
+**macOS/Linux:**
+```bash
+rm -rf models/
+```
+
+Luego reinicia la aplicación y se entrenará automáticamente con los datos actuales.
+
 ### 1. Ejecutar la API
 
 ```bash
 uvicorn app.main:app --reload
 ```
+
+> **Nota**: En el primer arranque (sin modelos), el proceso puede tomar unos minutos mientras entrena el modelo.
 
 ### 2. Acceder a la API
 
@@ -215,15 +249,3 @@ uvicorn app.main:app --reload
 - **Vectorización**: TF-IDF (Term Frequency-Inverse Document Frequency)
 - **Balanceo**: Oversampling para clases minoritarias
 - **Evaluación**: Classification report y accuracy score
-
-## 🤝 Contribuir
-
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
