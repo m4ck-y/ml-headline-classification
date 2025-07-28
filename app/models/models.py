@@ -8,7 +8,16 @@ import joblib
 def train_random_forest(X_train, y_train) -> RandomForestClassifier:
     print("\nEntrenando el modelo... sklearn RandomForestClassifier")
     start = time.time()
-    model = RandomForestClassifier(n_estimators=100, random_state=42)
+    model = RandomForestClassifier(class_weight='balanced', random_state=42, n_jobs=-1)
+    model.fit(X_train, y_train)
+    end = time.time()
+    print(f"Tiempo de entrenamiento: {end - start:.2f} segundos")
+    return model
+
+def train_random_forest_with_resampled(X_train, y_train) -> RandomForestClassifier:
+    print("\nEntrenando el modelo... sklearn RandomForestClassifier Resampled")
+    start = time.time()
+    model = RandomForestClassifier(random_state=42, n_jobs=-1)
     model.fit(X_train, y_train)
     end = time.time()
     print(f"Tiempo de entrenamiento: {end - start:.2f} segundos")
@@ -36,7 +45,8 @@ def evaluate_model(model, X_test, y_test, model_name="Modelo"):
     print(f"Tiempo de evaluación: {end - start:.2f} segundos")
 
 
-def save_model(model, vectorizer, model_name="Modelo", models_path="models/"):
+def save_model(model, vectorizer, models_path="models/"):
+    model_name="model"
     vec_path = models_path
     os.makedirs(models_path, exist_ok=True)
     joblib.dump(model, f"{models_path}{model_name}.pkl")
