@@ -218,6 +218,9 @@ curl -X POST "http://localhost:8000/predict" \
 
 Este flujo fue definido y explorado en detalle en `app/preprocessing/eda.ipynb`, donde se realiza el análisis exploratorio y diseño del pipeline de clasificación.
 
+También puedes consultarlo en línea a través de Google Colab:
+[Ver notebook en Colab](https://colab.research.google.com/drive/1ACeAjGPROtWMpaf7xR4iuQb912SU0Dm3?usp=sharing)
+
 1. **Preprocesamiento**: Limpieza y normalización del texto
 2. **Tokenización**: Separación en tokens usando NLTK
 3. **Vectorización**: Conversión a vectores TF-IDF
