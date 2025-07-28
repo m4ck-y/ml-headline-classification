@@ -39,10 +39,63 @@
 
 ## Uso
 
-Para ejecutar la aplicación:
+### Entrenar el modelo
+
+Para entrenar el modelo (solo necesario la primera vez):
 
 ```bash
 python -m app.main 
+```
+
+### Ejecutar la API REST
+
+Para ejecutar la API de clasificación:
+
+```bash
+python run_api.py
+```
+
+La API estará disponible en:
+- **URL base**: http://localhost:8000
+- **Documentación interactiva**: http://localhost:8000/docs
+- **Documentación alternativa**: http://localhost:8000/redoc
+
+### Probar la API
+
+Para probar la API con ejemplos:
+
+```bash
+python test_api.py
+```
+
+### Endpoints disponibles
+
+- `GET /` - Estado general de la API
+- `GET /health` - Verificación de salud de los modelos
+- `GET /categories` - Lista todas las categorías disponibles
+- `POST /predict` - Clasifica un headline
+
+#### Ejemplo de uso con curl:
+
+```bash
+curl -X POST "http://localhost:8000/predict" \
+     -H "Content-Type: application/json" \
+     -d '{"headline": "Breaking news: Stock market hits record high"}'
+```
+
+#### Respuesta esperada:
+
+```json
+{
+  "headline": "Breaking news: Stock market hits record high",
+  "predicted_category": "BUSINESS",
+  "confidence": 0.85,
+  "all_probabilities": {
+    "BUSINESS": 0.85,
+    "POLITICS": 0.10,
+    "TECHNOLOGY": 0.05
+  }
+}
 ```
 
 ## Desarrollo
