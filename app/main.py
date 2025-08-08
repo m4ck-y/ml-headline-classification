@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-from contextlib import asynccontextmanager
 from app.core.lifecycle import lifespan
 from app.api.routes import router
 
